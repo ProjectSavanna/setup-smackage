@@ -22,5 +22,10 @@
   "bugs": {
     "url": "https://github.com/ProjectSavanna/setup-smackage/issues"
   },
-  "homepage": "https://github.com/ProjectSavanna/setup-smackage#readme"
+  "homepage": "https://github.com/ProjectSavanna/setup-smackage#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.4",
+    "@actions/exec": "^1.0.4",
+    "@types/node": "^14.0.23"
+  }
 }
