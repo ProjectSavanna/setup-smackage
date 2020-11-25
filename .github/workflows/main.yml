@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: ProjectSavanna/setup-sml@v1.1.0
+      - uses: ProjectSavanna/setup-sml@v1.1.1
         with:
           smlnj-version: ${{ matrix.smlnj-version }}
       - uses: ./
