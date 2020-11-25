@@ -1,0 +1,30 @@
+name: CI
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  build:
+    name: SML/NJ ${{ matrix.smlnj-version }} - ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        smlnj-version: [110.87, 110.97, 110.98]
+        exclude:
+          # SML/NJ versions before 110.94 do not support 64-bit
+          - os: macos-latest
+            smlnj-version: 110.87
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ProjectSavanna/setup-sml@v1.1.0
+        with:
+          smlnj-version: ${{ matrix.smlnj-version }}
+      - uses: ./
+        with:
+          sml-compiler: smlnj
+      - name: Test version output
+        run: |
+          [[ $(smackage help | head -n 1) == Smackage* ]]
