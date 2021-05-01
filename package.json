@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/ProjectSavanna/setup-smackage#readme",
   "dependencies": {
-    "@actions/core": "^1.2.6",
+    "@actions/core": "^1.2.7",
     "@actions/exec": "^1.0.4",
     "@types/node": "^14.14.37"
   }
