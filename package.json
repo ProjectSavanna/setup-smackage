@@ -26,6 +26,6 @@
   "dependencies": {
     "@actions/core": "^1.4.0",
     "@actions/exec": "^1.1.0",
-    "@types/node": "^15.6.1"
+    "@types/node": "^15.12.5"
   }
 }
