@@ -23,7 +23,7 @@ jobs:
             smlnj-version: 110.87
 
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.3.5
       - uses: ProjectSavanna/setup-sml@v1.1.2
         with:
           smlnj-version: ${{ matrix.smlnj-version }}
