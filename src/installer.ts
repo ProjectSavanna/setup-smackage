@@ -10,7 +10,7 @@ export async function getSmackage(compiler: string): Promise<void> {
   // Step 2. (Ignored.)
 
   // Step 3. Download.
-  await exec.exec("git", ["clone", "git@github.com:standardml/smackage.git"]);
+  await exec.exec("git", ["clone", "https://github.com/standardml/smackage.git"]);
   await exec.exec("make", [compiler], { cwd: "smackage" });
 
   // Step 4. Update your PATH.
