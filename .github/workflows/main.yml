@@ -14,24 +14,25 @@ jobs:
 
     strategy:
       fail-fast: false
-      os: [ubuntu-latest, macos-11]
-      smlnj-version: [110.87, 110.97, 110.98, 110.98.1, 110.99, 110.99.2, 110.99.3, 2022.1]
-      exclude:
-        # SML/NJ versions before 110.98 do not support Big Sur
-        - os: macos-11
-          smlnj-version: 110.87
-        - os: macos-11
-          smlnj-version: 110.97
-        # SML/NJ 2022.1 does not support Linux
-        - os: ubuntu-latest
-          smlnj-version: 2022.1
-      include:
-        - os: macos-latest
-          smlnj-version: 110.99.2
-        - os: macos-latest
-          smlnj-version: 110.99.3
-        - os: macos-latest
-          smlnj-version: 2022.1
+      matrix:
+        os: [ubuntu-latest, macos-11]
+        smlnj-version: [110.87, 110.97, 110.98, 110.98.1, 110.99, 110.99.2, 110.99.3, 2022.1]
+        exclude:
+          # SML/NJ versions before 110.98 do not support Big Sur
+          - os: macos-11
+            smlnj-version: 110.87
+          - os: macos-11
+            smlnj-version: 110.97
+          # SML/NJ 2022.1 does not support Linux
+          - os: ubuntu-latest
+            smlnj-version: 2022.1
+        include:
+          - os: macos-latest
+            smlnj-version: 110.99.2
+          - os: macos-latest
+            smlnj-version: 110.99.3
+          - os: macos-latest
+            smlnj-version: 2022.1
 
     steps:
       - uses: actions/checkout@v3
