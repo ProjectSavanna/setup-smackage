@@ -15,9 +15,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-11]
+        os: [ubuntu-20.04, ubuntu-latest, macos-11]
         smlnj-version: [110.87, 110.97, 110.98, 110.98.1, 110.99, 110.99.2, 110.99.3]
         exclude:
+          # 32-bit dependencies do not install on Ubuntu 22.04+
+          - os: ubuntu-latest
+            smlnj-version: 110.87
+          - os: ubuntu-latest
+            smlnj-version: 110.97
           # SML/NJ versions before 110.98 do not support Big Sur
           - os: macos-11
             smlnj-version: 110.87
@@ -28,8 +33,6 @@ jobs:
             smlnj-version: 110.99.2
           - os: macos-latest
             smlnj-version: 110.99.3
-          - os: macos-12
-            smlnj-version: 2022.1
 
     steps:
       - uses: actions/checkout@v3
