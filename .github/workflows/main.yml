@@ -16,7 +16,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-20.04, ubuntu-latest, macos-11]
-        smlnj-version: [110.87, 110.97, 110.98, 110.98.1, 110.99, 110.99.2, 110.99.3, 2022.1]
+        smlnj-version: [110.87, 110.97, 110.98, 110.98.1, 110.99, 110.99.2, 110.99.3]
         exclude:
           # 32-bit dependencies do not install on Ubuntu 22.04+
           - os: ubuntu-latest
@@ -28,18 +28,11 @@ jobs:
             smlnj-version: 110.87
           - os: macos-11
             smlnj-version: 110.97
-          # SML/NJ 2022.1 does not support Linux
-          - os: ubuntu-latest
-            smlnj-version: 2022.1
-          - os: ubuntu-20.04
-            smlnj-version: 2022.1
         include:
           - os: macos-latest
             smlnj-version: 110.99.2
           - os: macos-latest
             smlnj-version: 110.99.3
-          - os: macos-latest
-            smlnj-version: 2022.1
 
     steps:
       - uses: actions/checkout@v3
